@@ -17,8 +17,8 @@ def chunk_text(text, chunk_size=500, overlap=100 ):
         end = start + chunk_size
         chunks.append(text[start:end])
         start = start + chunk_size - overlap
-
-        return chunks
+        print(start,end,chunk_size,overlap,len(text))
+    return chunks
 
 if __name__ == "__main__":
     pdf_path = "sample.pdf"  # Replace with your PDF file path
