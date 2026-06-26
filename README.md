@@ -1,6 +1,6 @@
 # RAG From Scratch
 
-A Retrieval-Augmented Generation (RAG) system built in Python that allows users to ask questions about PDF documents.
+A Retrieval-Augmented Generation (RAG) system built in Python that allows users to ask questions about PDF documents using semantic search and LLMs built without LangChain or LlamaIndex.
 
 ## Features
 
