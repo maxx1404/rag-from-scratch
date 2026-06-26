@@ -1,10 +1,10 @@
 from ingest import extract_text_from_pdf, chunk_text
-from embed import generate_embeddings, model
+from embed import generate_embedding, model
 from retrieve import VectorStore
 
-from transformers import pipeline
+from llm import generate_answer 
 
-PDF_PATH = "sample.pdf"  
+PDF_PATH = "data/sample.pdf"  
 print("Loading PDF...")
 
 text = extract_text_from_pdf(PDF_PATH)
@@ -14,16 +14,13 @@ print(f"Created {len(chunks)} chunks from the PDF.")
 
 print("Generating embeddings for chunks...")
 
-chunk_embeddings = generate_embeddings(chunks)
+chunk_embeddings = generate_embedding(chunks)
 embedding_dim = chunk_embeddings.shape[1]
 
 vector_store = VectorStore(embedding_dim)
 vector_store.add(chunks, chunk_embeddings)
 
-generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-    )
+
 
 while True:
     question  = input("\n Ask a question (or type 'exit' to quit): ")
@@ -37,14 +34,14 @@ while True:
     context = "\n".join(retrieved_chunks) 
 
     prompt = f"""
-Context: {context}
+                Context: {context}
 
-Question: {question}
+                Question: {question}
 
-Answer based only on the context.model.
-"""
+                Answer using only the information from the context. If the answer is not contained within the context, say "Not found in the document."
+            """
     
-    response = generator(prompt, max_new_tokens=150)
+    answer = generate_answer(context=context, question=question)
 
     print("\nAnswer:")
-    print(response[0]['generated_text'])
+    print(answer)
