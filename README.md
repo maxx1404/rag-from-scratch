@@ -36,6 +36,10 @@ rag-from-scratch/
 └── README.md
 ```
 
+## DEMO 
+![RAG Demo](assets/Screenshot%20(52).png)
+![Rag Demo](assets/Screenshot%20(53).png)
+
 ## Setup
 
 1. Create a virtual environment
@@ -80,3 +84,5 @@ python src/main.py
 * Multi-document support
 * Chat history
 * Persistent vector database
+
+
