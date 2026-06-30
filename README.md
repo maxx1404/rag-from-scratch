@@ -37,8 +37,13 @@ rag-from-scratch/
 ```
 
 ## DEMO 
+Demo 1. Used my resume as sample pdf
 ![RAG Demo](assets/Screenshot%20(52).png)
 ![Rag Demo](assets/Screenshot%20(53).png)
+
+Demo 2. Used the paper - 'Attention is all you Need'
+![RAG Demo](assets/Screenshot%20(54).png)
+![Rag Demo](assets/Screenshot%20(55).png)
 
 ## Setup
 
